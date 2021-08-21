@@ -17,4 +17,16 @@ const server = http.createServer(app);
 
 const wss = new WebSocket.Server({ server });
 
+wss.on("connection", (socket) => {
+  console.log("Connected to Browser ✅");
+
+  socket.addEventListener("close", () =>
+    console.log("Disconnected from Browser ❌")
+  );
+
+  socket.addEventListener("message", (message) => console.log(message.data));
+
+  socket.send("hello ! Dohyun");
+});
+
 server.listen(3000, onListen);
