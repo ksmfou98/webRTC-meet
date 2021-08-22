@@ -4,12 +4,22 @@ html(lang="en")
         meta(charset="UTF-8")
         meta(http-equiv="X-UA-Compatible", content="IE=edge")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Zoom
+        title Dohyun
         link(rel="stylesheet", href="https://unpkg.com/mvp.css")
-    body 
+    body
         header
-            h1 Zoom
+            h1 Dohyun
         main
-            h2 welcome to Zoom
-       
-        script(src="/public/js/app.js") t
+            div#welcome
+                form    
+                    input(placeholder="room name", required, type="text")
+                    button Enter room
+            div#call
+                div#myStream
+                    video#myFace(autoplay,playsinline, width="400", height="400")
+                    button#mute Mute
+                    button#camera Turn Camera Off
+                    select#cameras
+                    video#peerFace(autoplay,playsinline, width="400", height="400")
+        script(src="/socket.io/socket.io.js") 
+        script(src="/public/js/app.js") 
